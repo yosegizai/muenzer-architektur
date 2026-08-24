@@ -1,0 +1,136 @@
+/* Münzer Architektur — style.css */
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666666;
+  --faint: #999999;
+  --line: #e0e0e0;
+  --panel: #f5f5f5;
+  --tile: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --fg: #ffffff;
+    --muted: #a8a8a8;
+    --faint: #888888;
+    --line: #333333;
+    --panel: #222222;
+    --tile: #2a2a2a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--fg); text-decoration: none; }
+a:hover { color: var(--muted); }
+img { display: block; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 80px 40px; }
+
+/* Header */
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  padding: 24px 40px; border-bottom: 1px solid var(--line);
+}
+.brand { font-size: 15px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.nav { display: flex; flex-wrap: wrap; gap: 28px; }
+.nav a { font-size: 14px; letter-spacing: .02em; padding-bottom: 4px; border-bottom: 1px solid transparent; }
+.nav a[aria-current="page"] { font-weight: 600; border-bottom-color: var(--fg); }
+.btn {
+  display: inline-block; background: var(--fg); color: var(--bg);
+  border: 1px solid var(--fg); padding: 12px 24px;
+  font-size: 12px; letter-spacing: .05em; text-transform: uppercase; cursor: pointer;
+}
+.btn:hover { color: var(--bg); opacity: .82; }
+.btn-ghost { background: transparent; color: var(--fg); }
+.btn-ghost:hover { color: var(--fg); }
+
+/* Typography */
+h1.display { font-size: clamp(32px, 5vw, 72px); font-weight: 300; line-height: 1.1; letter-spacing: -.02em; text-transform: uppercase; margin: 0; }
+h2.display { font-size: clamp(28px, 4vw, 56px); font-weight: 300; line-height: 1.1; letter-spacing: -.02em; text-transform: uppercase; margin: 32px 0 0; }
+.page-title { font-size: 28px; font-weight: 400; }
+.lead { font-size: 16px; color: var(--muted); max-width: 640px; margin-top: 12px; }
+.label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+/* Media tiles */
+.tile { border: 1px solid var(--line); background: var(--tile); overflow: hidden; }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+.bw img { filter: grayscale(100%); }
+.r16-10 { aspect-ratio: 16 / 10; }
+.r4-3 { aspect-ratio: 4 / 3; }
+.r3-2 { aspect-ratio: 3 / 2; }
+.r3-4 { aspect-ratio: 3 / 4; }
+.r1-1 { aspect-ratio: 1 / 1; }
+
+/* Home */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 1280px; margin: 0 auto; padding: 88px 40px 0; }
+.hero p { font-size: 14px; color: var(--muted); max-width: 260px; margin-top: 28px; }
+.hero .portrait { max-width: 320px; margin-top: 40px; }
+.hero .inline-link { display: inline-block; margin-top: 24px; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+.hero .body { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 460px; margin-top: 16px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; border-top: 1px solid var(--line); padding-top: 60px; }
+.fact-n { font-size: 32px; font-weight: 500; }
+.fact-l { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+/* Grids */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 48px; margin-top: 72px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px; margin-top: 64px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 80px; }
+
+.member-name { font-size: 14px; font-weight: 600; margin-top: 16px; }
+.member-role { font-size: 12px; color: var(--faint); margin-top: 4px; }
+.member-bio { font-size: 13px; line-height: 1.5; color: var(--muted); margin-top: 12px; }
+.card-title { font-size: 18px; font-weight: 600; margin-top: 20px; }
+.card-text { font-size: 14px; line-height: 1.5; color: var(--muted); margin-top: 8px; }
+.meta { font-size: 13px; color: var(--faint); margin-top: 4px; }
+.meta-sm { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.credit { font-size: 11px; color: var(--faint); margin-top: 6px; }
+
+/* Auszeichnung */
+.award-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 80px; }
+.award-intro .tile { min-height: 500px; }
+.award-h { font-size: 28px; font-weight: 400; letter-spacing: -.01em; margin: 12px 0 16px; }
+.award-p { font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0; }
+
+/* Kontakt */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; margin-top: 56px; }
+form { display: flex; flex-direction: column; gap: 28px; }
+label { display: block; font-size: 12px; margin-bottom: 8px; }
+input, textarea {
+  width: 100%; padding: 10px 12px; font: inherit; font-size: 14px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--fg);
+}
+textarea { min-height: 120px; }
+input:focus, textarea:focus { outline: 1px solid var(--fg); }
+.office-address { font-size: 16px; line-height: 1.7; }
+.office-hours { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.office-links { margin-top: 12px; display: flex; flex-direction: column; gap: 4px; font-size: 16px; }
+.map { aspect-ratio: 16 / 9; margin-top: 32px; border: 1px solid var(--line); filter: grayscale(1) contrast(1.05); background: var(--panel); }
+.map iframe { width: 100%; height: 100%; border: 0; }
+.contact-list { display: flex; flex-direction: column; gap: 24px; margin-top: 40px; }
+
+/* Impressum */
+.legal { max-width: 680px; margin-top: 56px; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.legal h3 { font-size: 16px; font-weight: 600; color: var(--fg); margin: 32px 0 16px; }
+.legal p { margin: 0 0 20px; }
+
+/* Footer */
+.footer { background: var(--panel); padding: 40px; margin-top: 80px; border-top: 1px solid var(--line); }
+.footer div { max-width: 1280px; margin: 0 auto; font-size: 14px; color: var(--muted); }
+.footer-bar { background: #1a1a1a; padding: 12px 32px; display: flex; justify-content: flex-end; gap: 20px; }
+.footer-bar span { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #999999; }
+
+@media (max-width: 860px) {
+  .wrap { padding: 56px 24px; }
+  .header { padding: 20px 24px; }
+  .hero, .split, .award-intro, .contact { grid-template-columns: 1fr; gap: 40px; }
+  .hero { padding: 56px 24px 0; }
+  .award-intro .tile { min-height: 320px; }
+  .footer { padding: 32px 24px; }
+}
